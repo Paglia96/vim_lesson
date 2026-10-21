@@ -1,5 +1,7 @@
 # VIM, the vi imporoved text editor
 
+Questa repository contiene comandi base vim, e molta della sintassi che mi capita di utilizzare tutti i giorni. Il mio utilizzo di vim sarà diverso da quello di chi leggerà questo file: preferisco al momento non utilizzare plugin esterni, preferisco ai tab i buffer...
+
 ## Introduzione
 - [Richard Stallman: Emacs vs Vim](https://www.youtube.com/watch?v=1jPmnDZ6ab8)
 - [Storia di Vim](https://en.wikipedia.org/wiki/Vim_%28text_editor%29)
@@ -18,7 +20,8 @@ vim -S Session.vim
 ```
 
 ## Modalità
-**Normal mode**: si entra in questa modalità, ci si torna premendo ctrl+[ (non ESC!)
+**Normal mode**: si entra in questa modalità, ci si torna premendo ctrl+'['
+                 È meglio dimenticare ESC, scomodo da raggiungere sulle tastiere di oggi
 **Command mode**: ':' + comando vim o si fa precedere '!' a un comando bash
 **Inser mode**:
 - 'i' sul carattere evidenziato dal cursore
@@ -34,10 +37,10 @@ vim -S Session.vim
 **Replace mode**: 'R'. 'r' consente invece la modifica del carattere su cui sta il cursore
 
 ## Uscire da Vim (meme)
-:q # uscita
-:q! # uscita forzata
-:wq / :x # salva ed esci
-:wqa # salva tutti i buffer aperti ed esci
+- :q # uscita
+- :q! # uscita forzata
+- :wq / :x # salva ed esci
+- :wqa # salva tutti i buffer aperti ed esci
 
 ## RTFM
 - :help argument
@@ -87,19 +90,20 @@ vim -S Session.vim
 Vim salva sui propri registri, non sulla clipboard di sistema.
 
 ## Inserimento file esterni
-:r filename: inserisce il contenuto del file a capo dopo il cursore
-:r !command: inserisce l'output del comando a capo dopo il cursore
-
+- :r filename: inserisce il contenuto del file a capo dopo il cursore
+- :r !command: inserisce l'output del comando a capo dopo il cursore
 
 ## autocompletion (Insert mode)
-ctrl + n: come il tab del terminale, prima istanza
-ctrl + p: ultima istanza
+- ctrl + 'n': come il tab del terminale, prima istanza
+- ctrl + 'p': ultima istanza
 Si scorre premendo di nuovo la combinazione
 Si seleziona continuando a scrivere (non con invio)
 I suggerimenti sono legati ai buffer, non al singolo file
 
 ## Incremento/decremento di un int (Normal mode)
-- ctrl + a: mentre il cursore si trova sopra una cifra
+- ctrl + 'a': mentre il cursore si trova sopra una cifra
+- ctrl + 'x': decrementa
+- 666 + ctrl + 'a': incrementa di 666
 
 ## Combinazioni: \[operator\]\[count\]\[motion\]
 - dw: delete word
@@ -132,30 +136,37 @@ Sottolineare in visual mgit commit --amend --reset-author --no-eode, poi:
 
 ## Gestire più file contemporaneamente, l'incubo dei neofiti
 ### Buffers
-:e path
-:b
-:ls
+- :e path
+- :b
+- :ls
+
 ### Sessioni vim
 - mksession
 - mksession!
+
 ### Jobs del terminale
-Utilissimi per muoversi tra vim e il terminale. Si può aprire un terminale come buffer di vim con ':term' ma lo trovo estremamente scomodo
+Utilissimi per muoversi tra vim e il terminale.
+```bash
+jobs
+fg %[name/n_process]
+```
+Si può aprire un terminale come buffer di vim con ':term' ma lo trovo estremamente scomodo
 
 ## File di configurazione
 ```bash
 vim ~/.vimrc
 ```
-rc: run commands. Standard per i vecchi file di configurazione
-Qui sono inseribili git commands che vengono eseguiti ad ogni apertura di vim
-" questo è un commento
-Vim può essere personalizzato con tantissimi plug-in mantenuti dalla community di utilizzatori. Ne sconsiglio però l'uso finché non si sono padroneggiate le funzioni principali del programma. Vim è installato o installabile sostanzialmente ovunque e essere in grado di usarne fluidamente la versione non estesa è importante. 
+- rc: run commands. Standard per i vecchi file di configurazione. Qui sono inseribili git commands che vengono eseguiti ad ogni apertura di vim
+- " questo è un commento
+- Vim può essere personalizzato con tantissimi plug-in mantenuti dalla community di utilizzatori. Ne sconsiglio però l'uso finché non si sono padroneggiate le funzioni principali del programma. Vim è installato o installabile sostanzialmente ovunque e essere in grado di usarne fluidamente la versione non estesa è importante. 
+
 ### Alcuni comandi utili da inserire nel rc o da usare dentro Vim:
-:set nu
-:noh : no highlight
+- :set nu
+- :noh / :no highlight
 - ...
 
 ## Programmi che utilizzano sintassi vim
-- tiling window manager: spesso già impostati o impostabili con comandi simil-vim
+- tiling window manager: spesso già impostati o impostabili con comandi simil-vim.
 - zathura: lettore pdf
 - cutebrowser
 - ...
