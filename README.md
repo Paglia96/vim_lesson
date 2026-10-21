@@ -6,9 +6,9 @@ Non ci sono riferimenti ai tab, perché trovo molto più utile l'utilizzo dei bu
 Vim è utilizzabile in modi differenti e viene incontro alle esigenze di ognuno.
 
 ## Introduzione
-- [Storia di Vim](https://en.wikipedia.org/wiki/Vim_%28text_editor%29)
+- [Storia di Vim](https://en.wikipedia.org/wiki/Vim_%28text_editor%29) \
 ![Bram Moolenaar](img/Bram_Moolenaar_in_2007.jpg)
-- [Richard Stallman: Emacs vs Vim](https://www.youtube.com/watch?v=1jPmnDZ6ab8)
+- [Richard Stallman: Emacs vs Vim](https://www.youtube.com/watch?v=1jPmnDZ6ab8) \
 ![Saint IGNUcius](img/Richard-Stallman-in-Oslo-in-2009-as-Saint-IGNUcius-saint-in-the-Church-of-Emacs.jpg)
 
 ```bash
@@ -42,7 +42,7 @@ vim -S Session.vim
 **Replace mode**: 'R'. 'r' consente invece la modifica del carattere su cui sta il cursore
 
 ## Uscire da Vim
-![Exit vim the arrival way](img/exit-vim-the-arrival-way.jpg)
+![Exit vim the arrival way](img/exit-vim-the-arrival-way.jpg) \
 - :q # uscita
 - :q! # uscita forzata
 - :wq / :x # salva ed esci
