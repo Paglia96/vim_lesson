@@ -1,0 +1,7 @@
+## Vim artifacts
+*Session*
+*.swp
+*.swo
+*.swn
+*~
+*.un~
