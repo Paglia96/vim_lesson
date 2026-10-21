@@ -6,8 +6,10 @@ Non ci sono riferimenti ai tab, perché trovo molto più utile l'utilizzo dei bu
 Vim è utilizzabile in modi differenti e viene incontro alle esigenze di ognuno.
 
 ## Introduzione
-- [Richard Stallman: Emacs vs Vim](https://www.youtube.com/watch?v=1jPmnDZ6ab8)
 - [Storia di Vim](https://en.wikipedia.org/wiki/Vim_%28text_editor%29)
+![Bram Moolenaar](img/Bram_Moolenaar_in_2007.jpg)
+- [Richard Stallman: Emacs vs Vim](https://www.youtube.com/watch?v=1jPmnDZ6ab8)
+![Saint IGNUcius](img/Richard-Stallman-in-Oslo-in-2009-as-Saint-IGNUcius-saint-in-the-Church-of-Emacs.jpg)
 
 ```bash
 vimtutor
