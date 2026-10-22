@@ -26,27 +26,27 @@ vim -S Session.vim
 
 ## Modalità
 **Normal mode**: si entra in questa modalità all'apertura del programma; ci si torna premendo ctrl+'['  \
-È meglio dimenticare ESC, scomodo da raggiungere sulle tastiere di oggi.
-**Command mode**: ':' + (comando vim o ('!' + comando bash))
-**Insert mode**:
-- 'i' sul carattere evidenziato dal cursore
-- 'I' a inizio riga
-- 'a' sul carattere successivo a quello evidenziato dal cursore
-- 'A' a fine riga
-- 'o' manda a capo e si entra in insert mode sulla riga successiva
-- 'O' same ma reversed
-**Visual mode**:
-- 'v': visual (selezione per singoli caratteri)
-- Shift + 'v': visual line
-- ctrl + 'v': visual block
+È meglio dimenticare ESC, scomodo da raggiungere sulle tastiere di oggi. \
+**Command mode**: ':' + (comando vim o ('!' + comando bash)) \
+**Insert mode**: \
+- 'i' sul carattere evidenziato dal cursore \
+- 'I' a inizio riga \
+- 'a' sul carattere successivo a quello evidenziato dal cursore \
+- 'A' a fine riga \
+- 'o' manda a capo e si entra in insert mode sulla riga successiva \
+- 'O' same ma reversed \
+**Visual mode**: \
+- 'v': visual (selezione per singoli caratteri) \
+- Shift + 'v': visual line \
+- ctrl + 'v': visual block \
 **Replace mode**: 'R'. 'r' consente invece la modifica del carattere su cui sta il cursore
 
 ## Uscire da Vim
 ![Exit vim the arrival way](img/exit-vim-the-arrival-way.jpg) \
-- :q # uscita
-- :q! # uscita forzata
-- :wq / :x # salva ed esci
-- :wqa # salva tutti i buffer aperti ed esci
+- :q # uscita \
+- :q! # uscita forzata \
+- :wq / :x # salva ed esci \
+- :wqa # salva tutti i buffer aperti ed esci \
 
 ## RTFM
 - :help argument
@@ -64,7 +64,7 @@ vim -S Session.vim
 
 ## Muoversi
 - h, j, k, l: sx, giù, su, dx 
-- 5j: 5 righe in basso
+- 5j: 5 righe in basso \
 ### Sulla stessa riga
 - 'w' inizio parola successiva
 - 'e': end. Fine parola.
@@ -72,7 +72,7 @@ vim -S Session.vim
 - '0' inizio riga
 - '^' primo carattere non vuoto della riga
 - '$' fine riga
-- '%' sposta alla parentesi di chiusura
+- '%' sposta alla parentesi di chiusura \
 ### Nel file
 - :15 sposta il cursore a riga 15
 - 15G same
@@ -91,11 +91,11 @@ vim -S Session.vim
 - 'd' delete (cut)
 - 'c' delete ed entra in Insert Mode
 - 'p' paste dopo il cursore
-- 'P' paste prima del cursore
+- 'P' paste prima del cursore \
 ### Copiare l'intero file sulla clipboard
 - :w !cat | xsel -b # x11
 - :w !cat | xclip -selection clipboard # x11
-- :w !cat | wl-copy # wayland: non sui pc della 42 che usano x11
+- :w !cat | wl-copy # wayland: non sui pc della 42 che usano x11 \
 ### Registri di vim
 Vim salva sui propri registri, non sulla clipboard di sistema. \
 È possibile salvare il contenuto copiato su registri diversi.
@@ -123,12 +123,12 @@ I suggerimenti sono legati ai buffer, non al singolo file
 - d2w: delete two words
 - d$: delete from the cursor to end of line
 - d0: delete from the cursor to the start of the line
-- dd: delete current line
+- dd: delete current line \
 ### Combinazioni visual mode
 - viw: seleziona parola corrente
 - vaw: seleziona parola corrente e i suoi confini
 - vi", vi), vi], vi}: seleziona tutto il contenuto dentro "", (), {}
-- va", va), va], va}: seleziona tutto il contenuto dentro "", (), {} incluse le brackets
+- va", va), va], va}: seleziona tutto il contenuto dentro "", (), {} incluse le brackets \
 Una volta selezionato il testo è possibile usarvi gli operatori: d, y, c, U (rendi uppercase), u (rendi lowercase), ...
 
 ## Cercare parole

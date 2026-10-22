@@ -1,0 +1,227 @@
+<h1 id="vim-the-vi-imporoved-text-editor">VIM, the vi imporoved text
+editor</h1>
+<p>Questa repository contiene comandi base vim, e molta della sintassi
+che mi capita di utilizzare tutti i giorni.<br />
+Non ho inserito suggerimenti di plugin esterni in quanto non li uso e
+credo che fino a quando non si è in grado di padroneggiare la sintassi
+di default di vim non sia il caso di utilizzarli.<br />
+Non ci sono riferimenti ai tab, perché trovo molto più utile l’utilizzo
+dei buffer di vim né riferimenti allo split di più buffer in una singola
+finestra per lo stesso motivo.<br />
+Vim è utilizzabile in modi differenti e viene incontro alle esigenze di
+ognuno.</p>
+<h2 id="introduzione">Introduzione</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Vim_%28text_editor%29">Storia
+di Vim</a><br />
+<img src="img/Bram_Moolenaar_in_2007.jpg" alt="Bram Moolenaar" /></li>
+<li><a href="https://www.youtube.com/watch?v=1jPmnDZ6ab8">Richard
+Stallman: Emacs vs Vim</a><br />
+<img
+src="img/Richard-Stallman-in-Oslo-in-2009-as-Saint-IGNUcius-saint-in-the-Church-of-Emacs.jpg"
+alt="Saint IGNUcius" /></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">vimtutor</span></span></code></pre></div>
+<p>Online si trovano webgame che aiutano ad apprendere vim
+divertendosi.</p>
+<h2 id="entrare-in-vim">Entrare in Vim</h2>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">vim</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">vim</span> new_file_name</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">vim</span> existent_file</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">vim</span> <span class="at">-S</span> Session.vim</span></code></pre></div>
+<h2 id="modalità">Modalità</h2>
+<p><strong>Normal mode</strong>: si entra in questa modalità
+all’apertura del programma; ci si torna premendo ctrl+‘[’<br />
+È meglio dimenticare ESC, scomodo da raggiungere sulle tastiere di oggi.
+<strong>Command mode</strong>: ‘:’ + (comando vim o (‘!’ + comando
+bash)) <strong>Insert mode</strong>: - ‘i’ sul carattere evidenziato dal
+cursore - ‘I’ a inizio riga - ‘a’ sul carattere successivo a quello
+evidenziato dal cursore - ‘A’ a fine riga - ‘o’ manda a capo e si entra
+in insert mode sulla riga successiva - ‘O’ same ma reversed
+<strong>Visual mode</strong>: - ‘v’: visual (selezione per singoli
+caratteri) - Shift + ‘v’: visual line - ctrl + ‘v’: visual block
+<strong>Replace mode</strong>: ‘R’. ‘r’ consente invece la modifica del
+carattere su cui sta il cursore</p>
+<h2 id="uscire-da-vim">Uscire da Vim</h2>
+<p><img src="img/exit-vim-the-arrival-way.jpg"
+alt="Exit vim the arrival way" /><br />
+- :q # uscita - :q! # uscita forzata - :wq / :x # salva ed esci - :wqa #
+salva tutti i buffer aperti ed esci</p>
+<h2 id="rtfm">RTFM</h2>
+<ul>
+<li>:help argument</li>
+<li>:help user-manual</li>
+<li>Ctrl + ] Su una parola evidenziata ne apre la voce</li>
+<li>Ctrl + t: torna indietro</li>
+<li>:q esci</li>
+</ul>
+<h2 id="undo-redo">Undo, redo</h2>
+<ul>
+<li>‘u’: undo</li>
+<li>ctrl + ‘r’: redo</li>
+<li>‘.’: ripeti il comando appena eseguito</li>
+<li>‘x’: cancellare il carattere su cui sta il cursore</li>
+<li>‘X’: cancellare il carattere precedente</li>
+</ul>
+<h2 id="muoversi">Muoversi</h2>
+<ul>
+<li>h, j, k, l: sx, giù, su, dx</li>
+<li>5j: 5 righe in basso ### Sulla stessa riga</li>
+<li>‘w’ inizio parola successiva</li>
+<li>‘e’: end. Fine parola.</li>
+<li>‘b’: backword. Parola precedente.</li>
+<li>‘0’ inizio riga</li>
+<li>‘^’ primo carattere non vuoto della riga</li>
+<li>‘$’ fine riga</li>
+<li>‘%’ sposta alla parentesi di chiusura ### Nel file</li>
+<li>:15 sposta il cursore a riga 15</li>
+<li>15G same</li>
+<li>‘H’ high</li>
+<li>‘M’ middle</li>
+<li>‘L’ low</li>
+<li>‘G’: ground. Vai a fine file</li>
+<li>‘gg’: vai a inizio file</li>
+<li>ctrl + f / ctrl + b: forward / backward di una schermata</li>
+<li>ctrl + d / ctrl + u: forward / backward</li>
+<li>ctrl + G: mostra la posizione in % nel file</li>
+<li>‘{’ / ‘}’: paragrafo successivo / precedente</li>
+</ul>
+<h2 id="tagliare-copiare-incollare">Tagliare, copiare, incollare</h2>
+<ul>
+<li>‘y’ yank (copy)</li>
+<li>‘d’ delete (cut)</li>
+<li>‘c’ delete ed entra in Insert Mode</li>
+<li>‘p’ paste dopo il cursore</li>
+<li>‘P’ paste prima del cursore ### Copiare l’intero file sulla
+clipboard</li>
+<li>:w !cat | xsel -b # x11</li>
+<li>:w !cat | xclip -selection clipboard # x11</li>
+<li>:w !cat | wl-copy # wayland: non sui pc della 42 che usano x11 ###
+Registri di vim Vim salva sui propri registri, non sulla clipboard di
+sistema.<br />
+È possibile salvare il contenuto copiato su registri diversi.</li>
+</ul>
+<h2 id="inserimento-file-esterni">Inserimento file esterni</h2>
+<ul>
+<li>:r filename: inserisce il contenuto del file a capo dopo il
+cursore</li>
+<li>:r !command: inserisce l’output del comando a capo dopo il
+cursore</li>
+</ul>
+<h2 id="autocompletion-insert-mode">autocompletion (Insert mode)</h2>
+<ul>
+<li>ctrl + ‘n’: come il tab del terminale, prima istanza</li>
+<li>ctrl + ‘p’: ultima istanza Si scorre premendo di nuovo la
+combinazione Si seleziona continuando a scrivere (non con invio) I
+suggerimenti sono legati ai buffer, non al singolo file</li>
+</ul>
+<h2
+id="incrementodecremento-di-un-int-normal-mode">Incremento/decremento di
+un int (Normal mode)</h2>
+<ul>
+<li>ctrl + ‘a’: mentre il cursore si trova sopra una cifra</li>
+<li>ctrl + ‘x’: decrementa</li>
+<li>666 + ctrl + ‘a’: incrementa di 666</li>
+</ul>
+<h2 id="combinazioni-operatorcountmotion">Combinazioni:
+[operator][count][motion]</h2>
+<ul>
+<li>dw: delete word</li>
+<li>cw: delete word and enter in insert mode</li>
+<li>yw: yank word</li>
+<li>d2w: delete two words</li>
+<li>d$: delete from the cursor to end of line</li>
+<li>d0: delete from the cursor to the start of the line</li>
+<li>dd: delete current line ### Combinazioni visual mode</li>
+<li>viw: seleziona parola corrente</li>
+<li>vaw: seleziona parola corrente e i suoi confini</li>
+<li>vi”, vi), vi], vi}: seleziona tutto il contenuto dentro ““, (),
+{}</li>
+<li>va”, va), va], va}: seleziona tutto il contenuto dentro ““, (), {}
+incluse le brackets Una volta selezionato il testo è possibile usarvi
+gli operatori: d, y, c, U (rendi uppercase), u (rendi lowercase), …</li>
+</ul>
+<h2 id="cercare-parole">Cercare parole</h2>
+<ul>
+<li>/word: cerca ‘word’ in avanti (selezione anche negli altri
+buffer)</li>
+<li>?word: cerca ‘word’ indietro</li>
+<li>/word ricerca case-insensitive</li>
+<li>‘#’: cerca in avanti le istanze della parola su cui stava il
+cursore</li>
+<li>’*‘: same ma indietro Premendo invio ci si muove tra le istanze
+della ricerca con ’n’ e ‘N’, come su less, il pager di default del
+man</li>
+</ul>
+<h2 id="indentare-più-linee-di-codice">Indentare più linee di
+codice</h2>
+<p>Sottolineare in visual, poi: - &gt; indenta a destra di un tab - &lt;
+indenta a sinistra di un tab - n&gt; indenta di n tab (2&gt;)</p>
+<h2 id="gestire-più-file-contemporaneamente-lincubo-dei-neofiti">Gestire
+più file contemporaneamente, l’incubo dei neofiti</h2>
+<h3 id="buffers">Buffers</h3>
+<ul>
+<li>:e path</li>
+<li>:b</li>
+<li>:ls</li>
+</ul>
+<h3 id="sessioni-vim">Sessioni vim</h3>
+<ul>
+<li>mksession</li>
+<li>mksession!</li>
+</ul>
+<h3 id="jobs-del-terminale">Jobs del terminale</h3>
+<p>Utilissimi per muoversi tra vim e il terminale.<br />
+Si manda al processo un SIGTSTOP con Ctrl + ‘z’: il processo viene messo
+in bg.</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">jobs</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">fg</span> %<span class="pp">[</span><span class="ss">name/n_process</span><span class="pp">]</span></span></code></pre></div>
+<p>Si può aprire un terminale come buffer di vim con ‘:term’ ma lo trovo
+estremamente scomodo</p>
+<h2 id="file-di-configurazione">File di configurazione</h2>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">vim</span> ~/.vimrc</span></code></pre></div>
+<ul>
+<li>rc: run commands. Standard per i vecchi file di configurazione. Qui
+sono inseribili git commands che vengono eseguiti ad ogni apertura di
+vim</li>
+<li>” questo è un commento</li>
+<li>Vim può essere personalizzato con tantissimi plug-in mantenuti dalla
+community di utilizzatori. Ne sconsiglio però l’uso finché non si sono
+padroneggiate le funzioni principali del programma. Vim è installato o
+installabile sostanzialmente ovunque e essere in grado di usarne
+fluidamente la versione non estesa è importante.</li>
+</ul>
+<h3
+id="alcuni-comandi-utili-da-inserire-nel-rc-o-da-usare-dentro-vim">Alcuni
+comandi utili da inserire nel rc o da usare dentro Vim:</h3>
+<ul>
+<li>:set nu “mostra i numeri delle righe</li>
+<li>:noh / :no highlight “non mostrare contenuto evidenziato</li>
+<li>:set tabstop=4 “Larghezza visuale di un carattere tab</li>
+<li>:set expandtab “Converte i tab in spazi quando premi Tab.</li>
+<li>:set shiftwidth=4 “Numero di spazi utilizzati per ogni livello di
+indentazione automatico</li>
+<li>:set autoindent “Copia l’indentazione dalla linea precedente quando
+inizi una nuova riga.</li>
+<li>:set scrolloff=8 “Mantiene almeno 8 righe visibili sopra/sotto il
+cursore quando scorri.</li>
+<li>:set hidden “Permette di lasciare buffer modificati in background
+senza averli salvati</li>
+<li>:set ignorecase “Le ricerche non fanno distinzione tra maiuscole e
+minuscole</li>
+<li>:set foldmethod=indent “compatta le indentazioni (zR, zo, zc)</li>
+<li>…</li>
+</ul>
+<h2 id="programmi-che-utilizzano-sintassi-vim">Programmi che utilizzano
+sintassi vim</h2>
+<ul>
+<li>tiling window manager: spesso già impostati o impostabili con
+comandi simil-vim.</li>
+<li>zathura: lettore pdf</li>
+<li>cutebrowser</li>
+<li>…</li>
+</ul>
